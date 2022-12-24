@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}商家{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-2">
+        {% for business in business_list %}
+        <!-- 文章内容 -->
+        <div class="col-4 mb-4">
+        <!-- 卡片容器 -->
+            <div class="card h-100">
+                <!-- 标题 -->
+                <h4 class="card-header">{{ business.storename }}</h4>
+                <!-- 摘要 -->
+                <img class="card-img-top" src="{{ business.business_graph.url }}" alt="Card image cap" height="180px"
+                         width="320px">
+                <div class="card-body">
+                    <p class="card-text">来自食堂:{{ business.canteen.canteen_name }}</p>
+                    <p class="card-text">商家电话:{{ business.business_phone }}</p>
+                    <p class="card-text">营业状态:{{ business.get_business_status_display }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

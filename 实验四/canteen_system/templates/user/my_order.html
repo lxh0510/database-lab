@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}我的订单{% endblock %}
+
+{% block content %}
+<h3 class="headertext" align="center">我的订单</h3>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">序号</th>
+        <th scope="col">订单号</th>
+        <th scope="col">用户名</th>
+        <th scope="col">备注名</th>
+        <th scope="col">下单时间</th>
+        <th scope="col">预计送达时间</th>
+        <th scope="col">订单状态</th>
+        <th scope="col">总价</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for order in order_list  %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ order.order_id }}</td>
+        <td>{{ order.user.user_name }}</td>
+        <td>{{ order.new_name }}</td>
+        <td>{{ order.order_time }}</td>
+        <td>{{ order.arrive_time }}</td>
+        <td>{{ order.get_order_status_display }}</td>
+        <td>{{ order.total_price }}</td>
+
+    </tr>
+    {% empty %}
+    {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

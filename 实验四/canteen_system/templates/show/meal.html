@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}菜品{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-2">
+        {% for meal in meal_list %}
+        {% csrf_token %}
+        <!-- 文章内容 -->
+        <div class="col-4 mb-4">
+        <!-- 卡片容器 -->
+            <div class="card h-100">
+                <!-- 标题 -->
+                <h4 class="card-header">{{ meal.meal_name }}</h4>
+                <!-- 摘要 -->
+                <img class="card-img-top" src="{{ meal.meal_graph.url }}" alt="Card image cap" height="180px"
+                         width="320px">
+                <div class="card-body">
+                    <p class="card-text">{{ meal.meal_description }}</p>
+                    <p class="card-text">来自商家:{{ meal.business }}</p>
+                    <p class="card-text">种类·{{ meal.category }}</p>
+                    <p class="card-text">售价:{{ meal.meal_price }}</p>
+                    <p class="card-text">库存:{{ meal.meal_left }}</p>
+                </div>
+                <!-- 注脚 -->
+                <div class="card-footer">
+                    <input type="number" name="number" min="0" max="10" step="1" value="1">
+                    <a href="{{meal.put_list_url}}" class="btn btn-primary">加入购物车</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

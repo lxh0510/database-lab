@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}菜品{% endblock %}
+
+{% block content %}
+ <div class="container">
+            <div class="col">
+                <form class="form-login" action="/business/put_order/" method="post">
+                    {% if message %}
+                        <div class="alert alert-warning">{{ message }}</div>
+                    {% endif %}
+                    {% csrf_token %}
+                    <h3 class="text-center">请填写订单信息</h3>
+
+                    {{ order_form }}
+
+                    <div>
+                        <button type="submit" class="btn btn-primary float-right">现在下单</button>
+                    </div>
+                </form>
+            </div>
+    </div> <!-- /container -->
+{% endblock %}

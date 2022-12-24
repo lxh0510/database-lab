@@ -1,0 +1,32 @@
+<!-- 载入静态文件 -->
+{% load static %}
+
+<!DOCTYPE html>
+<!-- 网站主语言 -->
+<html lang="zh-cn">
+
+<head>
+    <!-- 网站采用的字符编码 -->
+    <meta charset="utf-8">
+    <!-- 预留网站标题的位置 -->
+    <title>校园点餐管理系统</title>
+    <!-- 引入bootstrap的css文件 -->
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+      <link href="{% static 'user/css/base.css' %}" rel="stylesheet"/>
+      <link href="{% static 'user/css/login.css' %}" rel="stylesheet"/>
+      <link href="{% static 'user/css/register.css' %}" rel="stylesheet"/>
+
+</head>
+
+<body>
+    <!-- 引入导航栏 -->
+    {% include 'business_header.html' %}
+    <!-- 预留具体页面的位置 -->
+    {% block content %}{% endblock content %}
+    {#    以下三者的引用顺序是固定的#}
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

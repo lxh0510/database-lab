@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}食堂{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-2">
+        {% for canteen in canteen_list %}
+        <!-- 文章内容 -->
+        <div class="col-4 mb-4">
+        <!-- 卡片容器 -->
+            <div class="card h-100">
+                <!-- 标题 -->
+                <h4 class="card-header">{{ canteen.canteen_name }}</h4>
+                <!-- 摘要 -->
+                <img class="card-img-top" src="{{ canteen.canteen_graph.url }}" alt="Card image cap" height="180px"
+                         width="320px">
+                <div class="card-body">
+                    <p class="card-text">开业时间:{{ canteen.open_time }}</p>
+                    <p class="card-text">歇业时间:{{ canteen.end_time }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

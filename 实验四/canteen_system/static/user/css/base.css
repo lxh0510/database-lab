@@ -1,0 +1,71 @@
+.flex {
+   display: flex;
+}
+.full-height{
+   height: 100%;
+}
+.menu-item {
+    color: #ffffff;
+    font-size: 15px;
+    width: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    position: relative;
+    text-decoration: none; /*去除文字下划线*/
+  }
+
+.container{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icon-item {
+    color: #ffffff;
+    font-size: 15px;
+    width: 80px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    position: relative;
+    text-decoration: none; /*去除文字下划线*/
+  }
+ul { /*去除内外边距*/
+    margin: 0px;
+    padding: 0px;
+   }
+ li { /*去除开头的黑点*/
+    list-style: none;
+ }
+ a {
+    text-decoration: none; /*去除文字下划线*/
+    line-height: 36px;
+ }
+.firstMenu {
+    width: 100%;
+    height: 36px;
+}
+
+.firstMenu .menu-one .menu .menu-two { /*正常情况下二级菜单不显示*/
+    display: none;
+}
+.firstMenu .menu-one .menu:hover .menu-two {
+    /*当鼠标悬浮在对应的一级菜单时，显示内容*/
+    display: block;
+}
+
+.firstMenu .menu-one .menu {
+            float: left; /*设置浮动*/
+            text-align: center;
+            width: 100px;
+ }
+
+a:hover{
+    color: #ffffff;
+}
+.menu2-item{
+    color: #ffffff;
+}
